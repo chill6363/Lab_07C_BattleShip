@@ -42,8 +42,6 @@ public class BattleshipFrame extends JFrame
                         BattleshipButton btn = ((BattleshipButton)e.getSource());
                         int row = btn.getRow();
                         int col = btn.getCol();
-                        //System.out.println(row + " " + col);
-                        //System.out.println(gameBoard[row][col].getStatus());
                         if(gameBoard[row][col].getText().equals("X") || gameBoard[row][col].getText().equals("M"))
                         {
                             JOptionPane.showMessageDialog(null, "Please select an empty space", "Invalid Selection", JOptionPane.ERROR_MESSAGE);
@@ -135,14 +133,12 @@ public class BattleshipFrame extends JFrame
             int colRand = rand.nextInt(shipLength + 1);
             //0 for vertical, 1 for horizontal
             int orientation = rand.nextInt(2);
-            //System.out.println("Ship Length: " + shipLength + " Row: " + rowRand + " Col: " + colRand + " Orientation: " + orientation);
             if(orientation == 0) {
                 //checking vertically
                 if(rowRand == shipLength){
                     for(int i = 10 - shipLength; i < 10; i++){
                         if (gameBoard[i][colRand].getStatus().equals("X")) {
                             isValidRow = false;
-                            System.out.println("IT SHOULD LOOP");
                             break;
                         }
                     }
@@ -155,14 +151,12 @@ public class BattleshipFrame extends JFrame
                     {
                         if (gameBoard[i][colRand].getStatus().equals("X")) {
                             isValidRow = false;
-                            System.out.println("IT SHOULD LOOP");
                             break;
                         }
                     }
                     bottomBound = rowRand;
                     topBound = rowRand + shipLength - 1;
                 }
-                //System.out.println("Bottom: " + bottomBound + " Top: " + topBound);
                 if(isValidRow){
                     isDone = true;
                     for(int row = bottomBound; row < topBound + 1; row++)
@@ -179,7 +173,6 @@ public class BattleshipFrame extends JFrame
                     for(int i = 10 - shipLength; i < 10; i++){
                         if (gameBoard[rowRand][i].getStatus().equals("X")) {
                             isValidCol = false;
-                            System.out.println("IT SHOULD LOOP");
                             break;
                         }
                     }
@@ -192,14 +185,12 @@ public class BattleshipFrame extends JFrame
                     {
                         if (gameBoard[rowRand][i].getStatus().equals("X")) {
                             isValidCol = false;
-                            System.out.println("IT SHOULD LOOP");
                             break;
                         }
                     }
                     bottomBound = colRand;
                     topBound = colRand + shipLength - 1;
                 }
-                //System.out.println("Bottom: " + bottomBound + " Top: " + topBound);
                 if(isValidCol){
                     isDone = true;
                     for(int col = bottomBound; col < topBound + 1; col++)
