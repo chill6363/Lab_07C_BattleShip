@@ -160,10 +160,7 @@ public class BattleshipFrame extends JFrame
                 if(isValidRow){
                     isDone = true;
                     for(int row = bottomBound; row < topBound + 1; row++)
-                    {
                         gameBoard[row][colRand].setStatus("X");
-                        gameBoard[row][colRand].setText(shipLength + "");
-                    }
 
                 }
             }
@@ -194,10 +191,7 @@ public class BattleshipFrame extends JFrame
                 if(isValidCol){
                     isDone = true;
                     for(int col = bottomBound; col < topBound + 1; col++)
-                    {
                         gameBoard[rowRand][col].setStatus("X");
-                        gameBoard[rowRand][col].setText(shipLength + "");
-                    }
 
                 }
             }
